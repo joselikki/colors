@@ -1,11 +1,20 @@
-def spl_str(word, n):
-    if(len(word) < n):
-        return list(word)
+from typing import List
 
-    remaining = len(word) % n
-    chunk_size = len(word) // n
+def split_str(string: str, n : int) -> List:
 
+    """
+        splits the "string" in "n" sub-strings
+        returns a list with the substrings        
+    """
+
+    #If the string length is less than n 
+    #returns a list with chars splitted
+    if(len(string) < n):
+        return list(string)
     chunks = []
+    remaining = len(string) % n
+    chunk_size = len(string) // n
+    
     start = 0
     for i in range(n):
         end = start + chunk_size
@@ -13,7 +22,8 @@ def spl_str(word, n):
             end = end + 1
             remaining -= 1
         
-        chunk = word[start: end]
+        chunk = string[start: end]
         chunks.append(chunk)
         start = end
+
     return chunks

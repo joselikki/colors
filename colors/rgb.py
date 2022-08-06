@@ -1,8 +1,21 @@
 class RGB:
+
+
     def __init__(self, r,g,b):
         self.r = r
         self.g = g
         self.b = b
+
+
+    def __str__(self) -> str:
+        return f"<R:{self.r} G:{self.g} B:{self.b}>"
+
+
+    @property
+    def codes(self):
+        return (self.r, self.g, self.b)
+
+    
 
 
 def pcolor(color : RGB, string: str, inline = False):
