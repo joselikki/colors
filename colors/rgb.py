@@ -18,16 +18,22 @@ class RGB:
 
 
     
-def colorize(color : RGB, string: str) -> str:
+def colorize(string: str, font : RGB = None, background: RGB = None) -> str:
     """
-        prints "string" into the terminal in "RGB" color
+        Returns a string with a rbg ANSII codes for color
     """
 
-    rgb_seq = f"\x1b[38;2;{color.r};{color.g};{color.b}m"
-    end_seq = f"\x1b[0m"
+    #ESC[48;2;{r};{g};{b}m
+    END_SEQ = f"\x1b[0m"
+    rgb_frgnd = ""
+    rgb_bkgnd = ""
+
+    if font:
+        rgb_frgnd = f"\x1b[38;2;{font.r};{font.g};{font.b}m"
+    if background:
+        rgb_bkgnd = f"\x1b[48;2;{background.r};{background.g};{background.b}m"
+
+    return rgb_bkgnd + rgb_frgnd + string + END_SEQ
     
-
-    return rgb_seq + string + end_seq
-
 
 
