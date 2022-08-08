@@ -23,14 +23,15 @@ class Gradient:
 
 
 
-def printg(grad : Gradient, string: str):
+def gradiently(grad : Gradient, string: str) -> str:
 
     END_SEQ = f"\x1b[0m"
     s = split_str(string, grad.len())
+    output = ""
 
     for i in range(len(s)):
         c = grad.steps[i]
         rgb_seq = f"\x1b[38;2;{c.r};{c.g};{c.b}m"
-        print(rgb_seq + s[i], end="")    
+        output += rgb_seq +s[i]
 
-    print(END_SEQ)
+    return output + END_SEQ
