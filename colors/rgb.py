@@ -18,7 +18,7 @@ class RGB:
 
 
     
-def printc(color : RGB, string: str, inline = False):
+def colorize(color : RGB, string: str) -> str:
     """
         prints "string" into the terminal in "RGB" color
     """
@@ -26,11 +26,8 @@ def printc(color : RGB, string: str, inline = False):
     rgb_seq = f"\x1b[38;2;{color.r};{color.g};{color.b}m"
     end_seq = f"\x1b[0m"
     
-    print(rgb_seq, end="")
-    print(string, end="")
 
-    if (inline):
-        print(end_seq + " ", end="")
-    else:
-        print(end_seq,)
+    return rgb_seq + string + end_seq
+
+
 
