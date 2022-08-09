@@ -7,23 +7,19 @@ class RGB:
         self.g = g
         self.b = b
 
-
     def __str__(self) -> str:
         return f"<R:{self.r} G:{self.g} B:{self.b}>"
-
 
     @property
     def codes(self) -> Tuple:
         return (self.r, self.g, self.b)
 
-
     
 def colorize(string: str, font : RGB = None, background: RGB = None) -> str:
     """
-        Returns a string with a rbg ANSII codes for color
+        Returns a string with rbg ANSII codes for color font and background
     """
 
-    #ESC[48;2;{r};{g};{b}m
     END_SEQ = f"\x1b[0m"
     rgb_frgnd = ""
     rgb_bkgnd = ""
@@ -35,5 +31,3 @@ def colorize(string: str, font : RGB = None, background: RGB = None) -> str:
 
     return rgb_bkgnd + rgb_frgnd + string + END_SEQ
     
-
-

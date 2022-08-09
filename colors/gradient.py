@@ -19,10 +19,6 @@ class Gradient:
     def steps(self)-> List:
         return self.step_list
 
-
-
-
-
 def gradiently(grad : Gradient, string: str) -> str:
 
     END_SEQ = f"\x1b[0m"

@@ -27,3 +27,4 @@ def split_str(string: str, n : int) -> List:
         start = end
 
     return chunks
+    
