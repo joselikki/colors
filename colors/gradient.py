@@ -3,7 +3,9 @@ from colors.rgb import RGB
 from colors.utils import split_str
 
 class Gradient:
-    step_list : RGB =[]
+
+    def __init__(self) -> None:
+        self.step_list : RGB =[]
 
     def len(self)->int:
         return len(self.step_list)
